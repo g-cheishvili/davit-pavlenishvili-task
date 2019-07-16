@@ -1,0 +1,58 @@
+
+<div *ngIf="institutions">
+    <h1>Institutions</h1>
+
+    <form #edit="ngForm" (ngSubmit)="searchInstitution(edit.value)" class="card-body" >
+      
+      <label for="pid">PID:</label>
+    
+      <input [(ngModel)]="institutionPid" name="pid"   type="text" class="form-control"/>
+      <br>
+    
+      <label for="name">Name:</label>
+      <input [(ngModel)]="institutionName" name="name"  type="text" class="form-control"/>
+      <br>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <hr>
+    <a [routerLink]="['addInstitution']" class="btn btn-secondary">Create Institution</a>
+    <br>
+    <h1>Institution Results</h1>
+    
+      <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Number</th>
+            <th scope="col">PID</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let institution of institutions.data">
+            <th scope="row">{{institution.id}}</th>
+            <td>{{institution.name}}</td>
+            <td>{{institution.number}}</td>
+            <td>{{institution.pid}}</td>
+            <td><a [routerLink]="['/institutions/institution', institution.id]" class="btn btn-primary">See Detail</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <nav aria-label="..." *ngIf="totalPages.length">
+        <ul class="pagination" style="cursor: pointer;">
+          <li class="page-item " [class.disabled]="institutions.current_page == 1">
+            <a class="page-link" (click)="getInstitutions(institutions.current_page - 1)" >Previous</a>
+          </li>
+          <li class="page-item " [class.active]="institutions.current_page == page" *ngFor="let page of totalPages">
+            <a class="page-link" (click)="getInstitutions(page)" >{{page}}</a>
+          </li>
+          <li class="page-item" [class.disabled]="institutions.current_page == institutions.last_page">
+            <a class="page-link" (click)="getInstitutions(institutions.current_page + 1)" >Next</a>
+          </li>
+        </ul>
+      </nav>
+    
+    
+</div>
+

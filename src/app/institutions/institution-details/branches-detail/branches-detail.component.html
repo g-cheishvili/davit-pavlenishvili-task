@@ -1,0 +1,111 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body" *ngFor="let branch of branch">
+      <h5 class="card-title">ID:{{branch?.id}}</h5>
+      <div><strong>Number:</strong>{{branch?.address}}</div>
+      <div><strong>Manager name:</strong>{{branch?.manager_name}}</div>
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal3">Edit Branch</button>
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addPersonal">Add Personal</button>
+      <br>
+      <button class="btn btn-danger" (click)="cancel()">cancel</button>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 align="center" class="card-title">Edit Item</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <form #editForm="ngForm" (ngSubmit)="editBranch(editForm.value)" class="card-body" *ngFor="let branch of branch">
+            <h1 align="center" class="card-title">Branches</h1>
+            <hr>
+
+            <label for="BranchID">BranchID:</label>
+            <em>Required</em>
+            <input [(ngModel)]="branch.id" name="BranchID" required id="BranchID" type="text" disabled class="form-control"/>
+            <br>
+
+            <label for="address">Address:</label>
+            <em>Required</em>
+            <input [(ngModel)]="branch.address" name="address" required id="address" type="text" class="form-control"/>
+            <br>
+
+            <label for="manager_name">Manager Name:</label>
+            <em>Required</em>
+            <input [(ngModel)]="branch.manager_name" name="manager_name" required id="manager_name" type="text" class="form-control"/>
+            <br>
+
+
+            <div class="button">
+              <button type="submit" class="btn btn-success">Create</button>
+              <a class="btn btn-danger">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="modal fade" id="addPersonal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 align="center" class="card-title">add Item</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="card">
+            <form #createForm="ngForm" (ngSubmit)="createPerson(createForm.value)" class="card-body">
+              <h1 align="center" class="card-title">Create Personal</h1>
+              <hr>
+
+              <label for="name">Name:</label>
+              <em>Required</em>
+              <input ngModel  name="name" required id="name" type="text" class="form-control"/>
+              <br>
+
+              <label for="pid">PID:</label>
+              <em>Required</em>
+              <input ngModel  name="pid" required id="pid" type="text" class="form-control"/>
+              <br>
+
+              <div class="button">
+                <button type="submit" class="btn btn-success">Create</button>
+                <a class="btn btn-danger">Cancel</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h1>Personal</h1>
+
+  <table class="table table-striped table-dark">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Pid</th>
+    </tr>
+    </thead>
+    <tbody>
+<!--    <tr *ngFor="let branch of institution.branches">-->
+<!--      <td>{{branch.address}}</td>-->
+<!--      <td>{{branch.manager_name}}</td>-->
+<!--      <td><a [routerLink]="['/institutions/', institution.id, branch.id]" class="btn btn-primary">See Detail</a></td>-->
+<!--    </tr>-->
+    </tbody>
+  </table>
+
+
+</div>

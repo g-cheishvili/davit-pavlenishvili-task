@@ -1,0 +1,31 @@
+nav{
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  background-color: darkcyan !important;
+}
+nav .navbar-brand{
+  color: white;
+}
+nav ul li a {
+  color: white !important;
+}
+nav ul .dropdown div a {
+  color: black !important;
+}
+nav form button {
+  border-color: white;
+  color: white;
+}
+nav form input {
+  border-color: white;
+}
+nav form a {
+  color: white;
+}
+
+.btn-outline-success:hover {
+  color: darkcyan !important;
+  background-color: #ffffff;
+  border-color: #28a745;
+}
+
+nav ul li > a.active { font-weight: 700; }

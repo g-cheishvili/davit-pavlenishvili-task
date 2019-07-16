@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="card">
+      <form #createForm="ngForm" (ngSubmit)="createInstitution(createForm.value)" class="card-body">
+        <h1 align="center" class="card-title">Add New Institution</h1>
+        <hr>
+  
+  
+        <label for="number">Institution Number:</label>
+        <em>Required</em>
+        <input [(ngModel)]="number" name="number" required type="text" class="form-control"/>
+        <br>
+  
+        <label for="name">Institution Name:</label>
+        <em>Required</em>
+        <input [(ngModel)]="name" name="name" required type="text" class="form-control"/>
+        <br>
+  
+        <label for="pid">Institution Pid:</label>
+        <em>Required</em>
+        <input [(ngModel)]="pid" name="pid" required type="text" class="form-control"/>
+        <br>
+  
+  
+        <div class="button">
+          <button type="submit" class="btn btn-success">Create</button>
+          <button class="btn btn-danger">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
